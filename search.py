@@ -149,7 +149,7 @@ def aStarSearch(problem, heuristic=nullHeuristic):
     if problem.isGoalState(problem.getStartState()):
         return []
 
-    queue.push((problem.getStartState(), []), heuristic)
+    queue.push((problem.getStartState(), []), heuristic(problem.getStartState(), problem))
 
     while(True):
         if queue.isEmpty():
@@ -171,11 +171,11 @@ def aStarSearch(problem, heuristic=nullHeuristic):
             for item in successor:
                 if item[0] not in visited:
                     newPath = path + [item[1]]
-                    queue.push((item[0], newPath), heuristic)
+                    queue.push((item[0], newPath), heuristic(item[0], problem))
 
 
 # Abbreviations
-bfs=breadthFirstSearch
-dfs=depthFirstSearch
-astar=aStarSearch
-ucs=uniformCostSearch
+bfs = breadthFirstSearch
+dfs = depthFirstSearch
+astar = aStarSearch
+ucs = uniformCostSearch
