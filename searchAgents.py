@@ -294,6 +294,14 @@ def diagonalHeuristic(position, problem, info={}):
     print(problem.goal)
     return max(abs(position[0] - problem.goal[0]), abs(position[1] - problem.goal[1]))
 
+def produtoCruzado(position, problem, info={}):
+    dx1 = position[0] - problem.goal[0]
+    dy1 = position[1] - problem.goal[1]
+    dx2 = problem.getStartState()[0] - problem.goal[0]
+    dy2 = problem.getStartState()[1] - problem.goal[1]
+    cross = abs (dx1 * dy2 - dx2 * dy1)
+    return cross * 0.001
+
 #####################################################
 # This portion is incomplete.  Time to write code!  #
 #####################################################
